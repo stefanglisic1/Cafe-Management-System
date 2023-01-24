@@ -1,0 +1,54 @@
+#draggable   {
+  position: absolute;
+  z-index: 1;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  width: 150px; height: 150px; padding: 0.5em; 
+}
+
+
+.btn {
+  padding: 10px;
+  cursor: move;
+  z-index: 2;
+  background-color: #35393dee;
+  color: #fff;
+}
+
+.keep-scrolling::-webkit-scrollbar {
+  display: none;
+}
+#draggable {
+  position: absolute;
+  z-index: 1;
+  background-color: gray;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  color: white;
+}
+p{
+max-height: 10px;
+}
+button.btn {
+  max-width: 100px;
+  height:90px ;
+  background-color: #35393dee;
+  color: white;
+  border: 0.2px solid black;
+  border-radius: 15%;
+}
+
+.ui-widget-content{
+
+  background-color: gray;
+  max-height: 110px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 15%;
+  color: white;
+  overflow: hidden;
+}
