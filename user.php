@@ -1,6 +1,21 @@
 <?php
-    session_start();
-    require 'dbcon.php';
+  
+  session_start();
+  require 'dbcon.php';
+  // Check if the user is logged in
+  if (!isset($_SESSION['user'])) {
+    header("Location: index.php");
+    exit();
+    }
+    
+    if (isset($_POST['logout'])) {
+      session_destroy();
+      header("Location: index.php");
+      exit();
+    }
+    
+    
+    
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,7 +40,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Stanje pića
-                        <a href="index.php" class="btn btn-danger float-end">Odjavi se</a>
+                        <div class="nav-item" style="position:absolute; right:25px; top:11px" >
+            <form method="POST">
+              <button  class="odjavi" type="submit" name="logout" style="color:white; background-color:crimson; border:transparent; border-radius:2px; padding:5px ">Odjavi se</button>
+            </form></div>
+            
                         </h4>
                     </div>
                     <div class="card-body">

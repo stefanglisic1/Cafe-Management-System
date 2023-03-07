@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminPage</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  
+
     <style>
         
 
@@ -38,8 +38,18 @@ $(function () {
 </head>
 
 <body>
-    <?php include "header.html" ?>
-   <button class="sacuvaj" onclick="location.href='adminpage.php';">Sačuvaj</button>
+    <?php include "header.php" ?>
+   <button class="sacuvaj" onclick="location.href='adminpage.php';" style="  text-decoration: none;
+    max-width: 100px;
+    height:34px ;
+    background-color: crimson;
+    color: white;
+    border: transparent;
+    border-radius: 3%;
+    position: absolute;
+    left: 87.8%;
+    top:11px;
+    z-index: 200;">Sačuvaj</button>
     <div id="draggable" class="ui-widget-content">
         <p>STO 1.</p>
         <button  class="btn">Nesto</button>

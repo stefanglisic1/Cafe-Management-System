@@ -1,6 +1,6 @@
 
 <?php
-    session_start();
+  
     require 'connection.php';
    
 ?>
@@ -17,7 +17,7 @@
     <title>AdminPage</title>
 </head>
 <body>
-<?php include "header.html"?>
+<?php include "header.php"?>
     <div class="container mt-4">
 
         <?php include('message.php'); ?>

@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 
@@ -45,20 +46,12 @@ $(function () {
 </head>
 
 <body id="iframeHolder">
-    <?php include "header.html" ?>
-    <script type="text/javascript">
-    $(function(){
-        $('#button').click(function(){ 
-            if(!$('#iframe').length) {
-                    $('#iframeHolder').html('<iframe id="iframe" src="pretraga.php" width="100%" height="760px"></iframe>');
-            }
-        });   
-    });
-    </script>
+    <?php include "header.php" ?>
+    
      
     <div id="draggable"  class="ui-widget-content">
         <p>STO 1.</p>
-        <button id="button" type="button"  class="btn">Nesto</button>
+        <button id="button" type="button"  class="btn" onclick="window.location = 'pretraga.php';">Nesto</button>
     </div>
     <div id="draggable" class="ui-widget-content">
         <p>STO 2.</p>

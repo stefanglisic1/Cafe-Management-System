@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 require 'dbcon.php';
+include 'header.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +23,8 @@ require 'dbcon.php';
     <style>
         table {
             font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
+            border-collapse:collapse;
+            width: 95%;
         }
 
         td,
@@ -51,10 +52,11 @@ require 'dbcon.php';
             left: 90%;
         }
     </style>
-   
+
 </head>
 
 <body>
+    <hr style="margin:0px auto" >
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -63,17 +65,19 @@ require 'dbcon.php';
                     aria-label="Search">
 
             </form>
-            <button onclick="parent.location.reload();" id="nazad" type="submit" name="" class="btn btn-danger btn-sm">Zavrsi narudžbinu</button>
+            <button onclick="window.location='adminpage.php';" id="nazad" type="submit" name=""
+                class="btn btn-danger btn-sm">Zavrsi narudžbinu</button>
         </div>
     </nav>
     <?php include('message.php'); ?>
 
     <br><br>
 
-    <table>
+    <table style="margin-left: auto;
+  margin-right: auto;">
         <thead>
             <tr>
-                <th style="visibility: hidden ;"></th>
+               
                 <th>Naziv</th>
                 <th>Vrsta</th>
                 <th>Stanje </th>
@@ -88,31 +92,34 @@ require 'dbcon.php';
 
             if (mysqli_num_rows($query_run) > 0) {
                 foreach ($query_run as $kafic) {
-            ?>
-            <tr>
-                <td style="visibility: hidden;"> <input type="hidden" name="kafic_id" value="<?= $kafic['id']; ?>"></td>
-                <td>
-                    <?= $kafic['naziv']; ?>
-                </td>
-                <td>
-                    <?= $kafic['vrsta']; ?>
-                </td>
-                <td name="stanje">
-                    <?= $kafic['stanje']; ?>
-                </td>
-                <td>
-                    <?= $kafic['cena']; ?>
-                </td>
-                <td>
+                    ?>
+                    <tr>
+                        <td>
+                            <?= $kafic['naziv']; ?>
+                        </td>
+                        <td>
+                            <?= $kafic['vrsta']; ?>
+                        </td>
+                        <td name="stanje">
+                            <?= $kafic['stanje']; ?>
+                        </td>
+                        <td>
+                            <?= $kafic['cena']; ?>
+                        </td>
+                        <td style="width:38px">
 
 
-                    <form action="pretragacode.php" method="POST" class="d-inline">
-                        <button type="submit"  name="naruci" value="<?= $prijava['id']; ?>"
-                            class="btn btn-success btn-sm">Naruči</button>
-                    </form>
-                </td>
-            </tr>
-            <?php
+                            <form action="pretragacode.php" method="POST" class="d-inline">
+                            <input type="hidden" name="stanje" value="<?= $kafic['stanje']; ?>">
+                                <input type="hidden" name="kafic_id" value="<?= $kafic['id']; ?>">
+                                <div class="text-center">
+                                <button type="submit" name="naruci" value="<?= $kafic['id']; ?>"
+                                    class="btn btn-success btn-sm text" style="width:100%">Dodaj</button></div> 
+                            </form>
+
+                        </td>
+                    </tr>
+                    <?php
                 }
             } else {
                 echo "<h5> No Record Found </h5>";
@@ -120,8 +127,8 @@ require 'dbcon.php';
             ?>
         </tbody>
     </table>
-    
-   
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

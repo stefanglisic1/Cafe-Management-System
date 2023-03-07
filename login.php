@@ -1,4 +1,14 @@
 <?php
+session_start();
+// Check if the user is already logged in
+if (isset($_SESSION['admin'])) {
+    header("Location: adminpage.php");
+    exit();
+  }else if (isset($_SESSION['user'])) {
+    header("Location: user.php");
+    exit();
+  }
+  
    include("connection.php");
    
    
@@ -15,14 +25,16 @@
             if($count==1){
                 
                 if(!strcmp($profile,$str2)){ 
+                $_SESSION['admin'] = $username;
                 
-                  
-                header("Location:adminpage.php");}
+                header("Location:adminpage.php");
+                exit();
+            }
 
             
                 else{
                       
-                  
+                    $_SESSION['user'] = $username;
                 header("Location:user.php");
                 }}
             
